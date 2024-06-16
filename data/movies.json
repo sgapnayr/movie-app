@@ -1,0 +1,32 @@
+[
+  {
+    "id": "c5b3f7d8-3e35-4f47-8f7b-2df69f8c8e4a",
+    "title": "The Matrix",
+    "rating": 7.5,
+    "category": "Action"
+  },
+  {
+    "id": "b47ec48f-76e5-4c97-8f0f-5f96a7bc7b99",
+    "title": "Focus",
+    "rating": 6.9,
+    "category": "Comedy"
+  },
+  {
+    "id": "78e1f9a0-51f2-4c6d-9d8c-4235a6f0b5af",
+    "title": "The Lazarus Effect",
+    "rating": 6.4,
+    "category": "Thriller"
+  },
+  {
+    "id": "5d6e12d9-f349-4d6a-a726-2ad58f5e4ed9",
+    "title": "Everly",
+    "rating": 5.0,
+    "category": "Action"
+  },
+  {
+    "id": "fae5d769-f676-4f9b-93e0-3d5c2a8e5b5e",
+    "title": "Maps to the Stars",
+    "rating": 7.5,
+    "category": "Drama"
+  }
+]
