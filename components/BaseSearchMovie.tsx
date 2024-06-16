@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 export default function BaseSearchMovie({ className }: { className?: string }) {
   const [searchedMovies, setSearchedMovies] = useRecoilState(searchedMoviesState);
   const [focused, setFocused] = useRecoilState(focusedState);
-  const [selectedMovie] = useRecoilState(selectedMovieState);
 
   useEffect(() => {
     setSearchedMovies(movies);
