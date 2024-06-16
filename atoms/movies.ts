@@ -2,6 +2,11 @@ import { atom } from 'recoil';
 import { Movie } from '@/types/movie';
 import movies from '@/data/movies.json';
 
+export const selectedMovieState = atom<Movie | null>({
+  key: 'selectedMovieState',
+  default: null,
+});
+
 export const searchedMoviesState = atom<Movie[]>({
   key: 'searchedMoviesState',
   default: movies,
