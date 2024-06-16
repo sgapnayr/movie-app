@@ -112,5 +112,4 @@ Create a new project, copy your project files, and ensure all dependencies are a
 
 ## Contact
 
-For any questions or feedback, please contact [Your Name] at [Your Email].
-# movie-app
+For any questions or feedback, please contact me directly.
