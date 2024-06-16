@@ -1,7 +1,7 @@
 'use client';
 
 import { useRecoilState } from 'recoil';
-import { searchedMoviesState, focusedState, selectedMovieState } from '@/atoms/movies';
+import { searchedMoviesState, focusedState, selectedMovieState, selectedRatingsState } from '@/atoms/movies';
 import BaseMovies from '@/components/BaseMovies';
 import movies from '@/data/movies.json';
 import { useEffect } from 'react';
@@ -9,18 +9,30 @@ import { useEffect } from 'react';
 export default function BaseSearchMovie({ className }: { className?: string }) {
   const [searchedMovies, setSearchedMovies] = useRecoilState(searchedMoviesState);
   const [focused, setFocused] = useRecoilState(focusedState);
+  const [selectedMovie] = useRecoilState(selectedMovieState);
+  const [selectedRatings] = useRecoilState(selectedRatingsState);
 
   useEffect(() => {
     setSearchedMovies(movies);
   }, [setSearchedMovies]);
 
+  useEffect(() => {
+    if (selectedRatings.length === 0) {
+      setSearchedMovies(movies);
+    } else {
+      setSearchedMovies(movies.filter(movie => selectedRatings.includes(Math.round(movie.rating / 2))));
+    }
+  }, [selectedRatings, setSearchedMovies]);
+
   function searchMovie(e: React.ChangeEvent<HTMLInputElement>) {
     const query = e.target.value.toLowerCase();
-    if (!query) {
+    if (!query && selectedRatings) {
+      setSearchedMovies(movies.filter(movie => selectedRatings.includes(Math.round(movie.rating / 2))));
+    } else if (!query && !selectedRatings) {
       setSearchedMovies(movies);
     } else {
       const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
-      setSearchedMovies(filteredMovies);
+      setSearchedMovies(selectedRatings.length === 0 ? filteredMovies : filteredMovies.filter(movie => selectedRatings.includes(Math.round(movie.rating / 2))));
     }
   }
 

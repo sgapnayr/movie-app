@@ -16,3 +16,8 @@ export const focusedState = atom<boolean>({
   key: 'focusedState',
   default: false,
 });
+
+export const selectedRatingsState = atom<number[]>({
+  key: 'selectedRatingsState',
+  default: [],
+});
