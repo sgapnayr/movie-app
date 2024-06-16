@@ -1,6 +1,5 @@
 import { Movie } from '@/types/movie';
 import React from 'react';
-import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 export default function BaseMovie({ movie }: { movie: Movie }) {
   function renderStars(rating: number) {
@@ -13,17 +12,17 @@ export default function BaseMovie({ movie }: { movie: Movie }) {
         {Array(fullStars)
           .fill(0)
           .map((_, i) => (
-            <FaStar key={`full-${i}`} />
+            <span key={`full-${i}`}>&#9733;</span>
           ))}
         {Array(halfStars)
           .fill(0)
           .map((_, i) => (
-            <FaStarHalfAlt key={`half-${i}`} />
+            <span key={`half-${i}`}>&#9734;</span>
           ))}
         {Array(emptyStars)
           .fill(0)
           .map((_, i) => (
-            <FaRegStar key={`empty-${i}`} />
+            <span key={`empty-${i}`}>&#9734;</span>
           ))}
       </>
     );

@@ -2,12 +2,11 @@
 
 import { useRecoilState } from 'recoil';
 import { searchedMoviesState, focusedState } from '@/atoms/movies';
-import { Movie } from '@/types/movie';
 import BaseMovies from '@/components/BaseMovies';
 import movies from '@/data/movies.json';
 
 export default function BaseSearchMovie({ className }: { className?: string }) {
-  const [searchedMovies, setSearchedMovies] = useRecoilState<Movie[]>(searchedMoviesState);
+  const [searchedMovies, setSearchedMovies] = useRecoilState(searchedMoviesState);
   const [focused, setFocused] = useRecoilState(focusedState);
 
   function searchMovie(e: React.ChangeEvent<HTMLInputElement>) {
@@ -30,8 +29,7 @@ export default function BaseSearchMovie({ className }: { className?: string }) {
         onChange={e => searchMovie(e)}
         data-cy="search-input"
       />
-
-      {focused && searchedMovies.length > 0 && <BaseMovies searchedMovies={searchedMovies} data-cy="search-results" />}
+      {focused && searchedMovies?.length > 0 && <BaseMovies searchedMovies={searchedMovies} data-cy="search-results" />}
     </div>
   );
 }

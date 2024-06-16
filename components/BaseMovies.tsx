@@ -4,10 +4,12 @@ import BaseMovie from './BaseMovie';
 
 export default function BaseMovies({ searchedMovies }: { searchedMovies: Movie[] }) {
   return (
-    <div className="relative">
+    <div className="relative" data-cy="search-results">
       <div className="absolute flex flex-col mt-1 w-full border border-custom bg-white">
         {searchedMovies.map(movie => (
-          <BaseMovie key={movie.id} movie={movie} />
+          <div key={movie.id} data-cy="movie-item">
+            <BaseMovie movie={movie} />
+          </div>
         ))}
       </div>
     </div>
