@@ -6,7 +6,7 @@ export function useGenres() {
   const [open, setOpen] = useState(false);
   const [selectedGenres, setSelectedGenres] = useRecoilState(selectedGenresState);
 
-  const genres = ['Any genre', 'Action', 'Comedy', 'Drama', 'Horror', 'Romance', 'Sci-Fi', 'Thriller'];
+  const genres = ['Any genre', 'Action', 'Comedy', 'Drama', 'Thriller'];
 
   useEffect(() => {
     if (selectedGenres.length === 0) {
