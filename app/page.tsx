@@ -1,7 +1,7 @@
-import BaseCart from '@/components/BaseCart';
 import BaseGenre from '@/components/BaseGenre';
 import BaseRating from '@/components/BaseRating';
 import BaseSearchMovie from '@/components/BaseSearchMovie';
+import BaseSelectedMovie from '@/components/BaseSelectedMovie';
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <BaseRating />
         <BaseGenre />
       </div>
-      <BaseCart />
+      <BaseSelectedMovie />
     </div>
   );
 }
