@@ -1,7 +1,6 @@
 import { RecoilRoot } from 'recoil';
-import BaseSearchMovie from './BaseSearchMovie';
+import BaseSearchMovie from '../components/BaseSearchMovie';
 import moviesData from '../data/movies.json';
-import { selectedMovieState } from '@/atoms/movies';
 
 describe('<BaseSearchMovie />', () => {
   beforeEach(() => {
