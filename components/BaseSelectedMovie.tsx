@@ -46,7 +46,7 @@ export default function BaseSelectedMovie() {
             <div className="mt-4">
               <div>{selectedMovie.title}</div>
               <div className="flex items-center">{renderStars(selectedMovie.rating)}</div>
-              <div className="text-[#777777]">{selectedMovie.category}</div>
+              <div className="text-[#777777]">{selectedMovie.genre}</div>
             </div>
           </div>
         </motion.div>

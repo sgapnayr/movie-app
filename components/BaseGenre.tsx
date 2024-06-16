@@ -1,14 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import BaseContainer from './BaseContainer';
-import { DownArrow, UpArrow } from '@/assets/icons';
-import { FullStar, EmptyStar } from '@/assets/icons';
+import { CheckMark, DownArrow, UpArrow } from '@/assets/icons';
+import { selectedGenresState } from '@/atoms/movies';
 
 export default function BaseGenre({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
+  const [selectedGenres, setSelectedGenres] = useRecoilState(selectedGenresState);
 
-  const ratings = ['Any rating', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  const genres = ['Any genre', 'Action', 'Comedy', 'Drama', 'Horror', 'Romance', 'Sci-Fi', 'Thriller'];
+
+  useEffect(() => {
+    if (selectedGenres.length === 0) {
+      setSelectedGenres(['Any genre']);
+    }
+  }, [setSelectedGenres]);
+
+  const toggleGenre = (genre: string) => {
+    if (genre === 'Any genre') {
+      setSelectedGenres(['Any genre']);
+    } else {
+      setSelectedGenres(prev => (prev.includes(genre) ? prev.filter(g => g !== genre) : [...prev.filter(g => g !== 'Any genre'), genre]));
+    }
+  };
+
+  const isGenreSelected = (genre: string) => {
+    return (selectedGenres.length === 0 && genre === 'Any genre') || selectedGenres.includes(genre);
+  };
 
   return (
     <div className={`flex flex-col ${className}`}>
@@ -19,26 +39,12 @@ export default function BaseGenre({ className }: { className?: string }) {
 
       {open && (
         <div className="relative w-[239px]" data-cy="search-results">
-          <div className="absolute flex flex-col mt-1 w-full border border-custom bg-white">
-            {ratings.map(rating => (
-              <div key={rating} className="p-4 w-full flex justify-between items-center hover:bg-[#F5F5F5] cursor-pointer">
-                <div className="flex items-center">
-                  <div className="w-4 h-4 border border-black rounded-sm" />
-                  {rating !== 'Any rating' && (
-                    <>
-                      {Array(parseInt(rating, 10))
-                        .fill(0)
-                        .map((_, i) => (
-                          <FullStar key={`full-${i}`} />
-                        ))}
-                      {Array(10 - parseInt(rating, 10))
-                        .fill(0)
-                        .map((_, i) => (
-                          <EmptyStar key={`empty-${i}`} />
-                        ))}
-                    </>
-                  )}
-                  <span className={rating === 'Any rating' ? 'ml-0' : 'ml-2'}>{rating}</span>
+          <div className="absolute flex flex-col mt-1 w-full border border-custom bg-white p-2 py-3">
+            {genres.map(genre => (
+              <div key={genre} className="h-6 w-full flex justify-between items-center hover:bg-[#F5F5F5] cursor-pointer" onClick={() => toggleGenre(genre)}>
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 border border-black mr-[2px] flex justify-center items-center">{isGenreSelected(genre) && <CheckMark />}</div>
+                  <span className="ml-2">{genre}</span>
                 </div>
               </div>
             ))}

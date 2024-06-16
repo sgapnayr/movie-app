@@ -20,7 +20,7 @@ export default function BaseMovie({ movie }: { movie: Movie }) {
         <div>{movie.title}</div>
         <div className="flex items-center">{renderStars(movie.rating)}</div>
       </div>
-      <div className="text-[#777777]">{movie.category}</div>
+      <div className="text-[#777777]">{movie.genre}</div>
     </div>
   );
 }

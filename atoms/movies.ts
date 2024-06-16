@@ -21,3 +21,8 @@ export const selectedRatingsState = atom<number[]>({
   key: 'selectedRatingsState',
   default: [],
 });
+
+export const selectedGenresState = atom<string[]>({
+  key: 'selectedGenresState',
+  default: ['Any genre'],
+});
