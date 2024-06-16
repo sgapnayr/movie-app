@@ -82,36 +82,6 @@ The test cases cover:
 - Ensuring all movies are displayed when the input is cleared.
 - Ensuring no JavaScript errors are present in the console.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Code Standards and Best Practices
-
-- Follow React best practices: [React Best Practices](https://www.codeinwp.com/blog/react-best-practices/)
-- Follow Object Calisthenics rules when appropriate: [Clean Code: Object Calisthenics](https://medium.com/@davidsen/clean-code-object-calisthenics-f6f4dec07c8b)
-
-## Sandboxed Environment
-
-You can view and run the project in a sandbox environment:
-
-- [JSFiddle](https://jsfiddle.net/)
-- [Stackblitz](https://stackblitz.com/)
-- [CodeSandbox](https://codesandbox.io/)
-
-Create a new project, copy your project files, and ensure all dependencies are added correctly to share your work online.
-
 ## Contact
 
 For any questions or feedback, please contact me directly.
