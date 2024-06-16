@@ -25,7 +25,7 @@ export default function BaseSelectedMovie() {
           transition={{ duration: 0.3 }}
           className="fixed bottom-0 w-full flex justify-center items-center border-t bg-white"
         >
-          <div className="max-w-[441px] w-full p-4">
+          <div className="max-w-[350px] md:max-w-[541px] w-full p-4">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-semibold">Your Cart</h2>
               <button onClick={handleDeselectMovie} className="text-red-500">
